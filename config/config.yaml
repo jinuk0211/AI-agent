@@ -1,0 +1,41 @@
+version: 0.1
+
+API_TYPE: "openai"  # api 타입, openai 또는 azure openai 'aoai'가능
+OPENAI_API_BASE: "YOUR_ENDPOINT" #  API를 이용하는 클라이언트가 서버에 요청을 보낼 때 사용하는 URL "https://api.openai.com/v1/chat/completions" for the OpenAI API.
+OPENAI_API_KEY: "YOUR_API_KEY"  # OpenAI API key
+OPENAI_API_MODEL: "gpt-4-vision-preview"  # gpt4 vision
+CONTROL_BACKEND: "uia"  # control action을 위한 백엔드- ui automation
+MAX_TOKENS: 2000  # response 토큰 제한
+MAX_RETRY: 3  # response completion 시도 최대 한도
+MAX_STEP: 30  # completing the user request 최대 한도
+SLEEP_TIME: 5  # The sleep time between each step to wait for the window to be ready
+TEMPERATURE: 0.0  # llm logit/temperatue에 사용되는 그거
+TOP_P: 0.0  # 높을 수록 평범한, 낮을수록 희한한 단어 사용됨 llm parameter 
+SAFE_GUARD: True  # 민감한 오퍼를 막기 위한 safe guard
+CONTROL_TYPE_LIST: ["Button", "Edit", "TabItem", "Document", "ListItem", "MenuItem", "ScrollBar", "TreeItem", "Hyperlink", "ComboBox", "RadioButton"]  # The list of control types that are allowed to be selected 
+HISTORY_KEYS: ["Step", "Thought", "ControlText", "Action", "Comment", "Results"]  # The keys of the action history for the next step.
+ANNOTATION_COLORS: {
+        "Button": "#FFF68F",
+        "Edit": "#A5F0B5",
+        "TabItem": "#A5E7F0",
+        "Document": "#FFD18A",
+        "ListItem": "#D9C3FE",
+        "MenuItem": "#E7FEC3",
+        "ScrollBar": "#FEC3F8",
+        "TreeItem": "#D6D6D6",
+        "Hyperlink": "#91FFEB",
+        "ComboBox": "#D8B6D4"
+    }
+
+PRINT_LOG: False #로그 출력 yes or no
+CONCAT_SCREENSHOT: True  # control item 관련 스크린샷 concat 여부
+LOG_LEVEL: "DEBUG"  # The log level
+INCLUDE_LAST_SCREENSHOT: True  # observation에 마지막 스크린샷을 포함시킬것인가 yes or no
+REQUEST_TIMEOUT: 250  # 250초 넘어가면 멈춤 timeout gpt4-v
+APP_SELECTION_PROMPT: "ufo/prompts/base/app_selection.yaml"  #  app selection을 위한 프롬프트
+ACTION_SELECTION_PROMPT: "ufo/prompts/base/action_selection.yaml"  # action selection를 위한 프롬프트
+INPUT_TEXT_API: "type_keys" # The input text API
+
+
+
+  
